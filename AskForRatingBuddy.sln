@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.452
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "AskForRatingBuddy.SharedProject", "AskForRatingBuddy.SharedProject\AskForRatingBuddy.SharedProject.shproj", "{FDA6CBA9-0857-4BAD-AB72-ECB668F411C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AskForRatingBuddy.iOS", "AskForRatingBuddy.iOS\AskForRatingBuddy.iOS.csproj", "{197016A8-1D64-4D4C-8F29-EA0C3076254E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AskForRatingBuddy.Android", "AskForRatingBuddy.Android\AskForRatingBuddy.Android.csproj", "{E699719F-D96E-4DB9-AC63-D2542ACA334C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AskForRatingBuddy.WindowsDX", "AskForRatingBuddy.WindowsDX\AskForRatingBuddy.WindowsDX.csproj", "{50FCF1EA-04FD-4965-B3FA-6947E22B6887}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A971962B-AA9A-42F3-BA56-D5953F09774A}"
+	ProjectSection(SolutionItems) = preProject
+		AskForRatingBuddy.nuspec = AskForRatingBuddy.nuspec
+		buildNugetPackages.ps1 = buildNugetPackages.ps1
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		AskForRatingBuddy.SharedProject\AskForRatingBuddy.SharedProject.projitems*{197016a8-1d64-4d4c-8f29-ea0c3076254e}*SharedItemsImports = 4
+		AskForRatingBuddy.SharedProject\AskForRatingBuddy.SharedProject.projitems*{50fcf1ea-04fd-4965-b3fa-6947e22b6887}*SharedItemsImports = 4
+		AskForRatingBuddy.SharedProject\AskForRatingBuddy.SharedProject.projitems*{e699719f-d96e-4db9-ac63-d2542aca334c}*SharedItemsImports = 4
+		AskForRatingBuddy.SharedProject\AskForRatingBuddy.SharedProject.projitems*{fda6cba9-0857-4bad-ab72-ecb668f411c4}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{197016A8-1D64-4D4C-8F29-EA0C3076254E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{197016A8-1D64-4D4C-8F29-EA0C3076254E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{197016A8-1D64-4D4C-8F29-EA0C3076254E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{197016A8-1D64-4D4C-8F29-EA0C3076254E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E699719F-D96E-4DB9-AC63-D2542ACA334C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E699719F-D96E-4DB9-AC63-D2542ACA334C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E699719F-D96E-4DB9-AC63-D2542ACA334C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E699719F-D96E-4DB9-AC63-D2542ACA334C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50FCF1EA-04FD-4965-B3FA-6947E22B6887}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50FCF1EA-04FD-4965-B3FA-6947E22B6887}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50FCF1EA-04FD-4965-B3FA-6947E22B6887}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50FCF1EA-04FD-4965-B3FA-6947E22B6887}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A5014013-AC53-4AA5-8E63-400345347645}
+	EndGlobalSection
+EndGlobal

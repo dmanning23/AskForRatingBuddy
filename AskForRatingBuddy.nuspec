@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+	<metadata>
+		<id>AskForRatingBuddy</id>
+		<version>2.0.1</version>
+		<title>AskForRatingBuddy</title>
+		<authors>dmanning23</authors>
+		<owners>dmanning23</owners>
+		<projectUrl>https://github.com/dmanning23/AskForRatingBuddy</projectUrl>
+		<licenseUrl>https://github.com/dmanning23/AskForRatingBuddy/blob/master/LICENSE.txt</licenseUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>MonoGame library for periodically asking the user to rate your app on the Google Play Store and Apple App Store</description>
+		<releaseNotes />
+		<copyright>Copyright 2016</copyright>
+		<tags>pcl, windows phone, winphone, android, ios, windows universal, monogame</tags>
+		<dependencies>
+
+			<!--Xamarin.Android-->
+			<group targetFramework="MonoAndroid10">
+				<dependency id="MenuBuddy" version="2.0"/>
+				<dependency id="Plugin.StoreReview" version="2.0"/>
+				<dependency id="SimpleStorage" version="1.4"/>
+				<dependency id="Xamarin.Essentials" version="1.2"/>
+			</group>
+
+			<!--Xamarin.iOS Unified-->
+			<group targetFramework="Xamarin.iOS10">
+				<dependency id="MenuBuddy" version="2.0"/>
+				<dependency id="Plugin.StoreReview" version="2.0"/>
+				<dependency id="SimpleStorage" version="1.4"/>
+				<dependency id="Xamarin.Essentials" version="1.2"/>
+			</group>
+
+			<group targetFramework="net451">
+				<dependency id="MenuBuddy" version="2.0"/>
+				<dependency id="SimpleStorage" version="1.4"/>
+			</group>
+
+		</dependencies>
+	</metadata>
+	<files>
+
+		<!--Xamarin.Android-->
+		<file src="AskForRatingBuddy.Android\bin\Release\AskForRatingBuddy.Android.pdb" target="lib\MonoAndroid10\AskForRatingBuddy.Android.pdb" />
+		<file src="AskForRatingBuddy.Android\bin\Release\AskForRatingBuddy.Android.dll" target="lib\MonoAndroid10\AskForRatingBuddy.Android.dll" />
+
+		<!--Xamarin.iOS Unified-->
+		<file src="AskForRatingBuddy.iOS\bin\Release\AskForRatingBuddy.iOS.pdb" target="lib\Xamarin.iOS10\AskForRatingBuddy.iOS.pdb" />
+		<file src="AskForRatingBuddy.iOS\bin\Release\AskForRatingBuddy.iOS.dll" target="lib\Xamarin.iOS10\AskForRatingBuddy.iOS.dll" />
+
+		<!--WindowsDX-->
+		<file src="AskForRatingBuddy.WindowsDX\bin\Release\AskForRatingBuddy.WindowsDX.pdb" target="lib\net451\AskForRatingBuddy.WindowsDX.pdb" />
+		<file src="AskForRatingBuddy.WindowsDX\bin\Release\AskForRatingBuddy.WindowsDX.dll" target="lib\net451\AskForRatingBuddy.WindowsDX.dll" />
+
+	</files>
+</package>
