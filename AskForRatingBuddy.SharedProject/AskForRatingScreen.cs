@@ -24,6 +24,8 @@ namespace AskForRatingBuddy
 
 		private const int MinAsks = 5;
 
+
+
 		protected int RateAskNumber
 		{
 			get
@@ -56,15 +58,18 @@ namespace AskForRatingBuddy
 		private string GameName { get; set; }
 		private string PackageName { get; set; }
 
+		private string EmailAddress { get; set; }
+
 		#endregion //Properties
 
 		#region Methods
 
-		public AskForRatingScreen(bool gameWon, string gameName, string packageName, ContentManager content = null) : base("AskForReviewScreen", content)
+		public AskForRatingScreen(bool gameWon, string gameName, string packageName, string emailAddress) : base("AskForRatingScreen")
 		{
 			GameWon = gameWon;
 			GameName = gameName;
 			PackageName = packageName;
+			EmailAddress = emailAddress;
 			timer = new CountdownTimer();
 		}
 
@@ -162,6 +167,7 @@ namespace AskForRatingBuddy
 			catch (Exception ex)
 			{
 				// Some other exception occurred
+				ScreenManager.AddScreen(new ErrorScreen(ex));
 			}
 		}
 
@@ -173,7 +179,7 @@ namespace AskForRatingBuddy
 				var message = new EmailMessage
 				{
 					Subject = $"{GameName} Feedback",
-					To = new List<string> { @"dannobotgames@gmail.com" },
+					To = new List<string> { EmailAddress },
 					//Cc = ccRecipients,
 					//Bcc = bccRecipients
 				};
@@ -182,10 +188,12 @@ namespace AskForRatingBuddy
 			catch (FeatureNotSupportedException fbsEx)
 			{
 				// Email is not supported on this device
+				ScreenManager.AddScreen(new ErrorScreen(fbsEx));
 			}
 			catch (Exception ex)
 			{
 				// Some other exception occurred
+				ScreenManager.AddScreen(new ErrorScreen(ex));
 			}
 #endif
 		}
