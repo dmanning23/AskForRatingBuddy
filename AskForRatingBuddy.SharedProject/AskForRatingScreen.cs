@@ -6,6 +6,7 @@ using GameTimer;
 using PerpetualEngine.Storage;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 #if __IOS__ || ANDROID
 using Xamarin.Essentials;
 using Plugin.StoreReview;
@@ -73,9 +74,9 @@ namespace AskForRatingBuddy
 			timer = new CountdownTimer();
 		}
 
-		public override void LoadContent()
+		public override async Task LoadContent()
 		{
-			base.LoadContent();
+			await base.LoadContent();
 
 			//Don't do anything if the player had a negative experience or if they've already rated the game
 			if (!GameWon || HasRated)
