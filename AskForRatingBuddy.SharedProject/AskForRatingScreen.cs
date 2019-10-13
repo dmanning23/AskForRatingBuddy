@@ -25,8 +25,6 @@ namespace AskForRatingBuddy
 
 		private const int MinAsks = 5;
 
-
-
 		protected int RateAskNumber
 		{
 			get
@@ -112,24 +110,24 @@ namespace AskForRatingBuddy
 			//just ask for a rating and exit the screen
 			if (!timer.HasTimeRemaining && !IsExiting)
 			{
-				AskForRating();
+				Task.Run(() => AskForRating());
 				ExitScreen();
 			}
 		}
 
-		public void AskForRating()
+		public async Task AskForRating()
 		{
-			var rateMsg = new MessageBoxScreen($"Are you enjoying ${GameName}?", string.Empty)
+			var rateMsg = new MessageBoxScreen($"Are you enjoying {GameName}?", string.Empty)
 			{
 				OkText = "Yes!",
 				CancelText = "Not Really",
 			};
 			rateMsg.OnSelect += EnjoyingGame;
 			rateMsg.OnCancel += NotEnjoyingGame;
-			ScreenManager.AddScreen(rateMsg);
+			await ScreenManager.AddScreen(rateMsg);
 		}
 
-		private void EnjoyingGame(object sender, ClickEventArgs e)
+		private async void EnjoyingGame(object sender, ClickEventArgs e)
 		{
 			var rateMsg = new MessageBoxScreen($"How about a rating on the app store?", string.Empty)
 			{
@@ -137,10 +135,10 @@ namespace AskForRatingBuddy
 				CancelText = "No Thanks",
 			};
 			rateMsg.OnSelect += OkRating;
-			ScreenManager.AddScreen(rateMsg);
+			await ScreenManager.AddScreen(rateMsg);
 		}
 
-		private void NotEnjoyingGame(object sender, ClickEventArgs e)
+		private async void NotEnjoyingGame(object sender, ClickEventArgs e)
 		{
 			var rateMsg = new MessageBoxScreen($"Would you mind giving us some feedback?", string.Empty)
 			{
@@ -148,10 +146,10 @@ namespace AskForRatingBuddy
 				CancelText = "No Thanks",
 			};
 			rateMsg.OnSelect += OkFeedback;
-			ScreenManager.AddScreen(rateMsg);
+			await ScreenManager.AddScreen(rateMsg);
 		}
 
-		private void OkRating(object sender, ClickEventArgs e)
+		private async void OkRating(object sender, ClickEventArgs e)
 		{
 			HasRated = true;
 
@@ -168,11 +166,11 @@ namespace AskForRatingBuddy
 			catch (Exception ex)
 			{
 				// Some other exception occurred
-				ScreenManager.AddScreen(new ErrorScreen(ex));
+				await ScreenManager.AddScreen(new ErrorScreen(ex));
 			}
 		}
 
-		private void OkFeedback(object sender, ClickEventArgs e)
+		private async void OkFeedback(object sender, ClickEventArgs e)
 		{
 #if ANDROID || __IOS__
 			try
@@ -184,17 +182,17 @@ namespace AskForRatingBuddy
 					//Cc = ccRecipients,
 					//Bcc = bccRecipients
 				};
-				Email.ComposeAsync(message);
+				await Email.ComposeAsync(message);
 			}
 			catch (FeatureNotSupportedException fbsEx)
 			{
 				// Email is not supported on this device
-				ScreenManager.AddScreen(new ErrorScreen(fbsEx));
+				await ScreenManager.AddScreen(new ErrorScreen(fbsEx));
 			}
 			catch (Exception ex)
 			{
 				// Some other exception occurred
-				ScreenManager.AddScreen(new ErrorScreen(ex));
+				await ScreenManager.AddScreen(new ErrorScreen(ex));
 			}
 #endif
 		}
