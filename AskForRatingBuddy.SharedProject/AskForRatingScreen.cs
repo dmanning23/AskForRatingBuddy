@@ -23,7 +23,7 @@ namespace AskForRatingBuddy
 		private const string _RateAskNumberKey = "RateAskNumber";
 		private const string _HasRatedKey = "HasRated";
 
-		private const int MinAsks = 5;
+		public int MinAsks { get; set; }
 
 		protected int RateAskNumber
 		{
@@ -63,12 +63,13 @@ namespace AskForRatingBuddy
 
 		#region Methods
 
-		public AskForRatingScreen(bool gameWon, string gameName, string packageName, string emailAddress) : base("AskForRatingScreen")
+		public AskForRatingScreen(bool gameWon, string gameName, string packageName, string emailAddress, int minAsks = 2) : base("AskForRatingScreen")
 		{
 			GameWon = gameWon;
 			GameName = gameName;
 			PackageName = packageName;
 			EmailAddress = emailAddress;
+			MinAsks = minAsks;
 			timer = new CountdownTimer();
 		}
 
@@ -155,12 +156,8 @@ namespace AskForRatingBuddy
 
 			try
 			{
-#if ANDROID
-				var ratePlugin = new StoreReviewImplementation();
-				ratePlugin.OpenStoreReviewPage($"{PackageName}");
-#elif __IOS__
-				var ratePlugin = new StoreReviewImplementation();
-				ratePlugin.RequestReview();
+#if ANDROID || __IOS__
+				await CrossStoreReview.Current.RequestReview(false);
 #endif
 			}
 			catch (Exception ex)
