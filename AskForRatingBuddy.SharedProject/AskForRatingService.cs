@@ -52,7 +52,6 @@ namespace AskForRatingBuddy
 		}
 
 		private string GameName { get; set; }
-		private string PackageName { get; set; }
 
 		private string EmailAddress { get; set; }
 
@@ -60,10 +59,9 @@ namespace AskForRatingBuddy
 
 		#region Methods
 
-		public AskForRatingService(string gameName, string packageName, string emailAddress, int minAsks = 2)
+		public AskForRatingService(string gameName, string emailAddress, int minAsks = 2)
 		{
 			GameName = gameName;
-			PackageName = packageName;
 			EmailAddress = emailAddress;
 			MinAsks = minAsks;
 		}
