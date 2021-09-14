@@ -9,6 +9,7 @@
     <Import_RootNamespace>AskForRatingBuddy.SharedProject</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)AskForRatingScreen.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AskForRatingService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IAskForRatingService.cs" />
   </ItemGroup>
 </Project>
